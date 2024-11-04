@@ -3,9 +3,9 @@ import csv
 from datetime import datetime
 
 # Define the CSV file and headers
-playerid = 'westbru01'
+playerid = 'butleji01'
 start_year = 2023
-csv_file = 'PlayerStats/westbru01.csv'
+csv_file = '../PlayerStats/butleji01.csv'
 csv_columns = [
     'Rk', 'G', 'Date', 'Tm', 'Opp', 'MP', 
     'FG', 'FGA', 'FG%', '3P', '3PA', '3P%', 'FT', 'FTA', 'FT%', 
