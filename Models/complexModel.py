@@ -35,7 +35,7 @@ def predict_player_points(player_stats_file, player_averages_file):
     mergedDF['3PA_3P%'] = mergedDF['3PA'] * mergedDF['3P%'] * mergedDF['TS%']
    
     mergedDF['Recency'] = np.linspace(0.1, 1, num=len(mergedDF))
-    mergedDF['Weight'] = mergedDF['Recency']  # Here, we simplify the weight calculation since we don't consider opponent
+    mergedDF['Weight'] = mergedDF['Recency'] 
     
     features = ['MP', 'FG%', '3P%', 'FT%', 'GmSc', '+/-', 'FTA', 'FGA', '3PA',
                 'PER', 'TS%', '3PAr', 'FTr', 'ORB%', 'DRB%', 'TRB%',

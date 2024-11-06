@@ -9,7 +9,8 @@ csv_file = '../PlayerStats/butleji01.csv'
 csv_columns = [
     'Rk', 'G', 'Date', 'Tm', 'Opp', 'MP', 
     'FG', 'FGA', 'FG%', '3P', '3PA', '3P%', 'FT', 'FTA', 'FT%', 
-    'PTS', 'GmSc', '+/-', 'season'
+    'ORB', 'DRB', 'AST', 'STL', 'BLK', 'TOV', 'PF' ,
+    'PTS', 'GmSc', '+/-', 'Season'
 ]
 
 # Team abbreviations mapping
@@ -116,10 +117,17 @@ try:
                     'FT': stat['made_free_throws'],
                     'FTA': stat['attempted_free_throws'],
                     'FT%': f"{(stat['made_free_throws'] / stat['attempted_free_throws'] * 100 if stat['attempted_free_throws'] > 0 else 0):.3f}",
-                    'PTS': stat['points_scored'],  # Points scored
-                    'GmSc': stat['game_score'],  # Game score
-                    '+/-': stat['plus_minus'],  # Plus/Minus
-                    'season': season  # Add season to the CSV
+                    'ORB': stat['offensive_rebounds'],
+                    'DRB': stat['defensive_rebounds'],	
+                    'AST': stat['assists'],
+                    'STL': stat['steals'],
+                    'BLK': stat['blocks'],
+                    'TOV': stat['turnovers'],
+                    'PF': stat['personal_fouls'],
+                    'PTS': stat['points_scored'], 
+                    'GmSc': stat['game_score'], 
+                    '+/-': stat['plus_minus'], 
+                    'Season': season  # Add season to the CSV
                 })
 
     print(f"Stats saved to {csv_file}")
