@@ -1,5 +1,6 @@
 from Models.complexModel import predict_player_points, predict_player_assists, predict_player_rebounds
 from Probability.prob import calculate_bet_value
+from StatAnalysis.checkStats import checkAboveLine
 from scipy.stats import norm
 import numpy as np
 
@@ -44,6 +45,8 @@ print(f'Best Model Mean Absolute Error: {mae}')
 print(f'Best Model R-squared: {r2}')
 print(f'Predicted rebounds for the player: {predicted_rebounds}')
 
+
+#example usage of calculate_bet_value
 sportsbook_line = 5.5
 sportsbook_odds = 1.1 
 
@@ -52,3 +55,10 @@ prob_over, implied_prob, expected_value = calculate_bet_value(predicted_rebounds
 print(f"Probability of recording over {sportsbook_line} rebounds: {prob_over:.2%}")
 print(f"Implied Probability by sportsbook: {implied_prob:.2%}")
 print(f"Expected Value of Bet: {expected_value}")
+
+#example usage of checkAboveLine
+stat = 'REB'
+line = 3
+playerAboveLine, percentageAboveLine, totalGames = checkAboveLine(player_stats_file, stat, line)
+print(f'Number of games where the player recorded more than {line} {stat}: {playerAboveLine} / {totalGames}')
+print(f'Percentage of games where the player scored more than {line} {stat}: {percentageAboveLine}')

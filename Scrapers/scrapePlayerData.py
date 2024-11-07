@@ -9,7 +9,7 @@ csv_file = '../PlayerStats/butleji01.csv'
 csv_columns = [
     'Rk', 'G', 'Date', 'Tm', 'Opp', 'MP', 
     'FG', 'FGA', 'FG%', '3P', '3PA', '3P%', 'FT', 'FTA', 'FT%', 
-    'ORB', 'DRB', 'AST', 'STL', 'BLK', 'TOV', 'PF' ,
+    'ORB', 'DRB','REB', 'AST', 'STL', 'BLK', 'TOV', 'PF' , 
     'PTS', 'GmSc', '+/-', 'Season'
 ]
 
@@ -119,6 +119,7 @@ try:
                     'FT%': f"{(stat['made_free_throws'] / stat['attempted_free_throws'] * 100 if stat['attempted_free_throws'] > 0 else 0):.3f}",
                     'ORB': stat['offensive_rebounds'],
                     'DRB': stat['defensive_rebounds'],	
+                    'REB': stat['offensive_rebounds'] + stat['defensive_rebounds'],
                     'AST': stat['assists'],
                     'STL': stat['steals'],
                     'BLK': stat['blocks'],

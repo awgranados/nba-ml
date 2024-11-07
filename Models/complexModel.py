@@ -183,7 +183,7 @@ def predict_player_rebounds(player_stats_file, player_averages_file):
     mergedDF.reset_index(drop=True, inplace=True)
     
     # Feature engineering
-    mergedDF['REB'] = mergedDF['DRB'] + mergedDF['ORB']
+
     mergedDF['MP_USG%'] = mergedDF['MP'] * mergedDF['USG%']
     mergedDF['DRB_DRB%'] = mergedDF['DRB'] * mergedDF['DRB%'] * mergedDF['TRB%']
     mergedDF['ORB_ORB%'] = mergedDF['ORB'] * mergedDF['ORB%'] * mergedDF['TRB%']   
@@ -228,7 +228,7 @@ def predict_player_rebounds(player_stats_file, player_averages_file):
     recent_games = mergedDF[features].tail(10)
     rolling_averages = recent_games.mean()
     pred_stats = pd.DataFrame([rolling_averages])
-    
+
     # Make the final prediction
     predicted_assists = stacking_model.predict(pred_stats)
     print(f"Predicted assists for the player in their next game: {predicted_assists[0]}")
